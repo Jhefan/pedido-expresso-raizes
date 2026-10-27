@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raízes do Nordeste - Pedido Expresso</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="topo-pagina">
+    <h1>Raízes do Nordeste - P. Expresso</h1>
+    <p class="canais-info">Atendimento Integrado: App | Totem | Web</p>
+  </header>
+
+  <main class="grid-pedido">
+
+    <div class="col-cardapio">
+
+      <section class="card-etapa">
+        <h2>1. Unidade de Retirada</h2>
+        <label for="select-loja" class="label-padrao">Selecione a loja para carregar o cardápio:</label>
+        <select id="select-loja" class="input-form">
+          <option value="recife">Recife - Centro (Cozinha Completa)</option>
+          <option value="olinda">Olinda - Orla (Unidade Expressa)</option>
+          <option value="caruaru">Caruaru - Especial São João (Sazonal)</option>
+        </select>
+        <div id="box-campanha" class="aviso-sazonal"></div>
+      </section>
+
+      <section class="card-etapa">
+        <h2>2. Cardápio Rápido</h2>
+        <div id="container-itens"></div>
+        <div class="fechamento-conta">
+          <p id="valor-final" class="preco-destaque">Total: R$ 0,00</p>
+          <p id="msg-fidelidade" class="status-desconto"></p>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card-etapa">
+      <h2>3. Fidelidade e Pagamento</h2>
+
+      <div class="area-fidelidade">
+        <label for="input-cpf" class="label-padrao">CPF na nota / Fidelidade (opcional):</label>
+        <input
+          type="text"
+          id="input-cpf"
+          class="input-form"
+          placeholder="000.000.000-00"
+          maxlength="14">
+
+        <label class="termo-lgpd" for="chk-lgpd">
+          <input type="checkbox" id="chk-lgpd">
+          <span>
+            <strong>[ ] ACEITO TERMOS (LGPD):</strong> Autorizo o uso do meu CPF para pontuar e liberar descontos exclusivos no clube Raízes.
+          </span>
+        </label>
+      </div>
+
+      <!-- Controle para demonstrar os fluxos do Caso de Uso UC02 na avaliacao -->
+      <div class="painel-teste-api">
+        <label for="select-status-api" class="label-padrao">Retorno da API de Pagamento (Teste):</label>
+        <select id="select-status-api" class="input-form">
+          <option value="aprovado">Simular: Pagamento Aprovado</option>
+          <option value="recusado">Simular: Pagamento Recusado (Erro)</option>
+        </select>
+      </div>
+
+      <button type="button" id="btn-finalizar" class="btn-pagar">[ PAGAR AGORA ]</button>
+
+      <div id="retorno-pagamento" class="box-mensagem"></div>
+
+      <div class="painel-cozinha">
+        <strong>STATUS DO PEDIDO:</strong>
+        <div class="indicadores-fila">
+          <span id="step-recebido">( ) RECEBIDO</span>
+          <span id="step-pronto">( ) PRONTO</span>
+        </div>
+        <p id="ticket-retirada" class="senha-balcao"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="barra-privacidade" class="footer-lgpd">
+    <span>
+      <strong>AVISO LGPD:</strong> DADOS PROTEGIDOS. Coletamos apenas informações essenciais para processar seu pedido.
+    </span>
+    <button type="button" id="btn-fechar-lgpd" class="btn-ok">[ OK ]</button>
+  </footer>
+
+</body>
+</html>
